@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://clf2avlx5oiga"]
+
+[ext_resource type="Script" path="res://nodes/player/scripts/CharacterMovement.gd" id="1_2veua"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vvdwv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ubabw"]
+albedo_color = Color(0.160784, 1, 0.0235294, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_usy2v"]
+material = SubResource("StandardMaterial3D_ubabw")
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_2veua")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_vvdwv")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_height_offset = 0.1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_usy2v")

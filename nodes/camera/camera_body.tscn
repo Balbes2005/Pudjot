@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddigpvo5kn471"]
+
+[ext_resource type="Script" path="res://nodes/camera/scripts/CameraBody.gd" id="1_0t00w"]
+[ext_resource type="Script" path="res://nodes/camera/scripts/CameraControls.gd" id="2_wuw1r"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o1xdw"]
+
+[node name="CameraBody" type="CharacterBody3D"]
+script = ExtResource("1_0t00w")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 8.70936, 6.87006)
+script = ExtResource("2_wuw1r")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, 0)
+shape = SubResource("BoxShape3D_o1xdw")
